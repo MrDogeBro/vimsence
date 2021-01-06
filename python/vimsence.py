@@ -70,12 +70,12 @@ if vim.eval("exists('g:vimsence_custom_icons')") == "1":
     remap.update(thumbnails)
 
 file_explorers = [
-    "nerdtree", "vimfiler", "netrw"
+    "nerdtree", "vimfiler", "netrw", "coc-explorer"
 ]
 
 # Fallbacks if, for some reason, the filetype isn't detected.
 file_explorer_names = [
-    "vimfiler:default", "NERD_tree_", "NetrwTreeListing"
+        "vimfiler:default", "NERD_tree_", "NetrwTreeListing", "coc-explorer"
 ]
 
 ignored_file_types  = -1

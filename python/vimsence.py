@@ -121,16 +121,18 @@ def update_presence():
 
     filename = get_filename()
     directory = get_directory()
+    lineNumber = getLineNumber()
+    totalLines = getTotalLines()
     filetype = get_filetype()
 
     editing_text = 'Editing a {} file'
     if (vim.eval("exists('{}')".format("g:vimsence_editing_large_text")) == "1"):
         editing_text = vim.eval("g:vimsence_editing_large_text")
 
-    editing_state = 'Workspace: {}'
+    editing_state = '{}'
     if (vim.eval("exists('{}')".format("g:vimsence_editing_state")) == "1"):
         editing_state = vim.eval("g:vimsence_editing_state")
-    state = editing_state.format(directory)
+    state = editing_state.format('Line ' + lineNumber + ' of ' + totalLines)
 
     editing_details = 'Editing {}'
     if (vim.eval("exists('{}')".format("g:vimsence_editing_details")) == "1"):
@@ -251,3 +253,10 @@ def get_directory():
     """
 
     return re.split(r"[\\/]", vim.eval('getcwd()'))[-1]
+
+
+def getLineNumber():
+    return re.split(r"[\\/]", vim.eval('line(".")'))[-1]
+
+def getTotalLines():
+    return re.split(r"[\\/]", vim.eval('line("$")'))[-1]

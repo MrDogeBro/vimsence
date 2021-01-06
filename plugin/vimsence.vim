@@ -93,7 +93,7 @@ command! -nargs=0 DiscordDisconnect call DiscordAsyncWrapper(function('DiscordDi
 
 augroup DiscordPresence
     autocmd!
-    autocmd BufNewFile,BufRead,BufEnter * :call DiscordAsyncWrapper(function('DiscordUpdatePresence'))
+    autocmd BufNewFile,BufRead,BufEnter,CursorHold,CursorHoldI * :call DiscordAsyncWrapper(function('DiscordUpdatePresence'))
 augroup END
 
 " Set loaded to true
